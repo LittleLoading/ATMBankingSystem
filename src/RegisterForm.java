@@ -53,13 +53,27 @@ public class RegisterForm extends JDialog {
         String password = String.valueOf(pfPassword.getPassword());
         String confirmPassword = String.valueOf(pfConfirmPassword.getPassword());
 
-        if(name.isEmpty()||email.isEmpty()||phone.isEmpty()||adress.isEmpty()||password.isEmpty()||confirmPassword.isEmpty()){
+        if (name.isEmpty() || surename.isEmpty() || email.isEmpty() || phone.isEmpty() || adress.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill all the required fields!", "Try again", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if(!password.equals(confirmPassword)){
+  /*      if (!password.equals(confirmPassword)) {
             JOptionPane.showMessageDialog(null, "Passwords do not match!", "Try again", JOptionPane.ERROR_MESSAGE);
-            return;
+        }
+
+   */
+
+        if (name != null && surename != null && email != null && phone != null && adress != null && password != null && confirmPassword != null && confirmPassword(password, confirmPassword)) {
+            User user = new User(name, surename,email,phone,adress,password);
+        }
+    }
+
+    public boolean confirmPassword(String password, String confirmPassword) {
+        if (!password.equals(confirmPassword)) {
+            JOptionPane.showMessageDialog(null, "Passwords do not match!", "Try again", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else {
+            return true;
         }
     }
 }
