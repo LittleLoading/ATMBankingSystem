@@ -65,6 +65,7 @@ public class RegisterForm extends JDialog {
 
         if (name != null && surename != null && email != null && phone != null && adress != null && password != null && confirmPassword != null && confirmPassword(password, confirmPassword)) {
             User user = new User(name, surename,email,phone,adress,password);
+            user.addUser();
         }
     }
 
