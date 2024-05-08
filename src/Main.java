@@ -8,6 +8,9 @@ public class Main {
         System.out.println("Hello world!");
         RegisterForm registerForm = new RegisterForm(null);
 
+        LoginForm loginForm = new LoginForm(null);
+
+        Account account = new Account(null);
 
     }
 }

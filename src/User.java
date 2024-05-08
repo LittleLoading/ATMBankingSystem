@@ -92,6 +92,6 @@ public class User {
         int bankLast = rn.nextInt(9000) + 1000;
 
 
-        this.accountNumber = (String)(bankFirst + bankLast) ;
+    //    this.accountNumber = (String)(bankFirst + bankLast) ;
     }
 }
