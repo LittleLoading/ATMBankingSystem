@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RegisterForm extends JDialog {
+public class RegisterForm extends JDialog{
     private JTextField tfName;
     private JTextField tfSurename;
     private JTextField tfEmail;
@@ -24,7 +24,9 @@ public class RegisterForm extends JDialog {
         setMinimumSize(new Dimension(400, 450));
         setModal(true);
         setLocationRelativeTo(parent);
-        setVisible(true);
+
+
+
 
         //Register Button
         btnRegister.addActionListener(new ActionListener() {
@@ -38,7 +40,9 @@ public class RegisterForm extends JDialog {
         btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("Cancel button clicked");
                 dispose();
+                System.exit(0);
             }
         });
         setVisible(true);

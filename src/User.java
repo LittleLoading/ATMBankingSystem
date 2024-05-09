@@ -39,7 +39,11 @@ public class User {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name.matches("^[A-Z]{1}[a-z]+$")) {
+            this.name = name;
+        }else {
+            //Throw it has to be only letters
+        }
     }
 
     public String getSurename() {
@@ -47,7 +51,11 @@ public class User {
     }
 
     public void setSurename(String surename) {
-        this.surename = surename;
+        if(surename.matches("^[A-Z]{1}[a-z]+$")) {
+            this.surename = surename;
+        }else {
+            //Throw someshit
+        }
     }
 
     public String getEmail() {
@@ -55,7 +63,11 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if(email.toLowerCase().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+\\.[a-zA-Z]{2,}$")) {
+            this.email = email.toLowerCase();
+        }else {
+            //Throw someshit
+        }
     }
 
     public String getPhone() {
@@ -63,7 +75,11 @@ public class User {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        if(phone.matches("^(\\d{3}\\d{3}\\d{3})$")) {
+            this.phone = phone;
+        }else{
+            //throw some exepriton
+        }
     }
 
     public String getAddress() {
@@ -71,7 +87,11 @@ public class User {
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        if(address.toLowerCase().matches("^[A-Z]{1}[a-z]+$")) {
+            this.address = address;
+        }else{
+            //throw some shit
+        }
     }
 
     public String getPassword() {
@@ -79,7 +99,11 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if(password.matches("^(?=.*\\d)(?=.*[A-Z]).{8,}$\n")) {
+            this.password = password;
+        }else{
+            //throw some shit
+        }
     }
 
     public String getAccountNumber() {
