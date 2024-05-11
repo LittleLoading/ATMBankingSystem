@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RegisterForm extends JDialog{
+public class RegisterForm extends JDialog {
     private JTextField tfName;
     private JTextField tfSurename;
     private JTextField tfEmail;
@@ -24,8 +24,6 @@ public class RegisterForm extends JDialog{
         setMinimumSize(new Dimension(400, 450));
         setModal(true);
         setLocationRelativeTo(parent);
-
-
 
 
         //Register Button
@@ -57,20 +55,56 @@ public class RegisterForm extends JDialog{
         String password = String.valueOf(pfPassword.getPassword());
         String confirmPassword = String.valueOf(pfConfirmPassword.getPassword());
 
+        String nameRegex = "^[A-Z]{1}[a-z]+$";
+        String surenameRegex = "^[A-Z]{1}[a-zA-Z]+$";
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+\\.[a-zA-Z]{2,}$";
+        String phoneRegex = "^(\\d{3}\\d{3}\\d{3})$";
+        String adressRegex = "^[A-Z]{1}[a-z]+$";
+        String passwordRegex = "^(?=.*\\d)(?=.*[A-Z]).{8,}$";
+
         if (name.isEmpty() || surename.isEmpty() || email.isEmpty() || phone.isEmpty() || adress.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill all the required fields!", "Try again", JOptionPane.ERROR_MESSAGE);
             return;
         }
-  /*      if (!password.equals(confirmPassword)) {
-            JOptionPane.showMessageDialog(null, "Passwords do not match!", "Try again", JOptionPane.ERROR_MESSAGE);
+
+        if (!name.matches(nameRegex)) {
+            JOptionPane.showMessageDialog(null, "Name has to be in format [Name] example [Liam]", "Try again", JOptionPane.ERROR_MESSAGE);
+            return;
         }
 
-   */
-
-        if (name != null && surename != null && email != null && phone != null && adress != null && password != null && confirmPassword != null && confirmPassword(password, confirmPassword)) {
-            User user = new User(name, surename,email,phone,adress,password);
-            user.addUser();
+        if (!surename.matches(surenameRegex)) {
+            JOptionPane.showMessageDialog(null, "Surename has to be in format [Surename] example [Smith]", "Try again", JOptionPane.ERROR_MESSAGE);
+            return;
         }
+
+        if (!email.matches(emailRegex)) {
+            JOptionPane.showMessageDialog(null, "Email is in wrong fromat, example of correct email: [liam_smith123@gmail.com]", "Try again", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (!phone.matches(phoneRegex)) {
+            JOptionPane.showMessageDialog(null, "Phone number has to be 9 digit number  example [123456789]");
+            return;
+        }
+
+        if (!adress.matches(adressRegex)) {
+            JOptionPane.showMessageDialog(null, "Adress has to be in format [Adress] example [Jecna]");
+            return;
+        }
+        if (!password.matches(passwordRegex)) {
+            JOptionPane.showMessageDialog(null, "Password has to be: at least 8 characters, contain at least one digit and one uppercase letter. example: [LiamSmith123]");
+            return;
+        }
+
+        if (!confirmPassword(password, confirmPassword)) {
+            return; // Error message is already displayed in the confirmPassword method
+        }
+
+        // At this point, all required fields are non-empty and passwords match
+        User user = new User(name, surename, email, phone, adress, password);
+        user.addUser(user);
+        System.out.println("User was added");
+        user.showusers();
     }
 
     public boolean confirmPassword(String password, String confirmPassword) {

@@ -1,6 +1,9 @@
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.TreeSet;
 
-public class User {
+public class User implements Serializable {
 
     private String name;
     private String surename;
@@ -10,6 +13,9 @@ public class User {
     private String password;
     private String accountNumber;
 
+    Register register = new Register();
+
+    HashSet<User> users = new HashSet<>();
 
     public User(String name, String surename, String email, String phone, String address, String password) {
         this.name = name;
@@ -18,20 +24,27 @@ public class User {
         this.phone = phone;
         this.address = address;
         this.password = password;
+        setAccountNumber();
     }
 
-    public User(String name, String surename, String email, String phone, String address, String password, String accountNumber) {
-        this.name = name;
-        this.surename = surename;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.password = password;
-        this.accountNumber = accountNumber;
+    public void addUser(User user) {
+        register.addUser(user);
     }
 
-    public void addUser(){
+    public void showusers() {
+        register.getAllUsers();
+    }
 
+    @Override
+    public String toString() {
+        return "User: " + '\n' +
+                " name: " + name + '\n' +
+                " surename: " + surename + '\n' +
+                " email: " + email + '\n' +
+                " phone: " + phone + '\n' +
+                " address: " + address + '\n' +
+                " password: " + password + '\n' +
+                " accountNumber: " + accountNumber + '\n';
     }
 
     public String getName() {
@@ -39,9 +52,9 @@ public class User {
     }
 
     public void setName(String name) {
-        if(name.matches("^[A-Z]{1}[a-z]+$")) {
+        if (name.matches("^[A-Z]{1}[a-z]+$")) {
             this.name = name;
-        }else {
+        } else {
             //Throw it has to be only letters
         }
     }
@@ -51,9 +64,9 @@ public class User {
     }
 
     public void setSurename(String surename) {
-        if(surename.matches("^[A-Z]{1}[a-z]+$")) {
+        if (surename.matches("^[A-Z]{1}[a-z]+$")) {
             this.surename = surename;
-        }else {
+        } else {
             //Throw someshit
         }
     }
@@ -63,9 +76,9 @@ public class User {
     }
 
     public void setEmail(String email) {
-        if(email.toLowerCase().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+\\.[a-zA-Z]{2,}$")) {
+        if (email.toLowerCase().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+\\.[a-zA-Z]{2,}$")) {
             this.email = email.toLowerCase();
-        }else {
+        } else {
             //Throw someshit
         }
     }
@@ -75,9 +88,9 @@ public class User {
     }
 
     public void setPhone(String phone) {
-        if(phone.matches("^(\\d{3}\\d{3}\\d{3})$")) {
+        if (phone.matches("^(\\d{3}\\d{3}\\d{3})$")) {
             this.phone = phone;
-        }else{
+        } else {
             //throw some exepriton
         }
     }
@@ -87,9 +100,9 @@ public class User {
     }
 
     public void setAddress(String address) {
-        if(address.toLowerCase().matches("^[A-Z]{1}[a-z]+$")) {
+        if (address.toLowerCase().matches("^[A-Z]{1}[a-z]+$")) {
             this.address = address;
-        }else{
+        } else {
             //throw some shit
         }
     }
@@ -99,9 +112,9 @@ public class User {
     }
 
     public void setPassword(String password) {
-        if(password.matches("^(?=.*\\d)(?=.*[A-Z]).{8,}$\n")) {
+        if (password.matches("^(?=.*\\d)(?=.*[A-Z]).{8,}$\n")) {
             this.password = password;
-        }else{
+        } else {
             //throw some shit
         }
     }
@@ -110,12 +123,14 @@ public class User {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber() {
         Random rn = new Random();
         int bankFirst = rn.nextInt(90000000) + 10000000;
         int bankLast = rn.nextInt(9000) + 1000;
 
+        String bankLastString = String.valueOf(bankLast);
 
-    //    this.accountNumber = (String)(bankFirst + bankLast) ;
+        String accountNumber = bankFirst + "/" + bankLastString;
+        this.accountNumber = accountNumber;
     }
 }
