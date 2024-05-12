@@ -32,7 +32,13 @@ public class User implements Serializable {
     }
 
     public void showusers() {
-        register.getAllUsers();
+        System.out.println(getUsers());
+    }
+
+
+
+    public HashSet<User> getUsers(){
+        return register.getUsers();
     }
 
     @Override

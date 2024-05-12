@@ -1,49 +1,96 @@
 import java.io.*;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.UUID;
 
 public class Register implements Serializable {
 
+    private HashMap<Character, HashSet<User>> userMap;
+    private static final String USERS_FOLDER = "Users";
+    private static final long serialVersionUID = 1113799434508676095L;
 
-    private HashSet users = new HashSet<User>();
 
+    public Register() {
+        userMap = new HashMap<>();
+    }
 
     public void addUser(User user) {
-        users.add(user);
-        saveToFile("karel");
+        if (!isPhoneUnique(user.getPhone())) {
+            System.out.println("Phone number already exists.");
+            return;
+        }
+
+        char firstLetter = Character.toUpperCase(user.getSurename().charAt(0));
+        if (!userMap.containsKey(firstLetter)) {
+            userMap.put(firstLetter, new HashSet<>());
+        }
+        userMap.get(firstLetter).add(user);
+        saveToFile(user);
     }
 
-    public HashSet<User> getAllUsers() {
-        loadFromFile("karel");
-        return users;
-    }
+    public boolean isPhoneUnique(String phone) {
+        for (HashSet<User> users : userMap.values()) {
+            for (User user : users) {
+                if (user.getPhone().equals(phone)) {
+                    return false;
+                }
+            }
+        }
 
-    public void saveToFile(String fileName) {
-        try (ObjectOutputStream ouputStream = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            ouputStream.writeObject(users);
-            System.out.println("Users saved to file: " + fileName);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get(USERS_FOLDER))) {
+            for (Path path : directoryStream) {
+                User user = readUserFromFile(path);
+                if (user != null && user.getPhone().equals(phone)) {
+                    return false;
+                }
+            }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    private User readUserFromFile(Path path) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path.toFile()))) {
+            return (User) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
-    public void loadFromFile(String fileName) {
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName))) {
-            users = (HashSet<User>) inputStream.readObject();
-            System.out.println("Users loaded from file: " + fileName);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+    private void saveToFile(User user) {
+
+        String folderName = "Users";
+        Path folderPath = Paths.get(folderName);
+        if(!Files.exists(folderPath)){
+            try {
+                Files.createDirectories(folderPath);
+            }catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+        }
+
+
+        String fileName = folderName + "/user_" + user.getSurename() + "_" + UUID.randomUUID() + ".ser";
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(user);
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
-    @Override
-    public String toString() {
-        return "Register: " + '\n' +
-                " users: " + users + '\n';
+    public HashSet<User> getUsers() {
+        HashSet<User> allUsers = new HashSet<>();
+        for (HashSet<User> users : userMap.values()) {
+            allUsers.addAll(users);
+        }
+        return allUsers;
     }
 }

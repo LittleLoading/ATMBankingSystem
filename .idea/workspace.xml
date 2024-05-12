@@ -4,14 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3420cf55-7cea-40b5-9d31-d3ce56a4096f" name="Changes" comment="Created regex for user input,&#10;need to do exeptions">
-      <change afterPath="$PROJECT_DIR$/karel" afterDir="false" />
+    <list default="true" id="3420cf55-7cea-40b5-9d31-d3ce56a4096f" name="Changes" comment="modified regexes, added saving users into files-serializable&#10;Fixed cancel btn">
+      <change afterPath="$PROJECT_DIR$/Users/user_Aaa_a5735bad-cb80-4966-bf74-85e8f5e7a3ef.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/user_Heger_fefddfdd-e7c2-49a4-8d57-e699ccf9faef.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/user_Kovar_53846512-21de-4972-a4e2-296f85ee0712.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/user_Kovar_895a9980-dec2-4510-a032-5cded38032b7.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/user_Kurak_268d76fd-6b72-42c9-a14c-9955ca3d16b1.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/user_Mama_1dba1414-2b21-476b-be18-1ceb16ed1703.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/user_Novak_deb87ff2-9728-4f20-8dc4-e0a0976235af.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/user_Smith_883fbf0f-fd6c-45bb-ac47-78062f74f83d.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/user_Smith_a6e528da-4486-4e12-91bd-7ea95685baf7.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/user_Zusti_0a666c85-4bd6-430c-8ab2-0918edce2668.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/Dollar (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/Dollar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/Login 50px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/pngwing.com.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/karel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login 50px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegisterForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RegisterForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons8-login-67.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/icons8-login-67.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pngwing.com.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/register.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/register.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +75,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -103,7 +122,8 @@
       <workItem from="1714324357311" duration="7331000" />
       <workItem from="1715269114580" duration="3769000" />
       <workItem from="1715361090877" duration="157000" />
-      <workItem from="1715412058905" duration="6940000" />
+      <workItem from="1715412058905" duration="13009000" />
+      <workItem from="1715530505140" duration="7311000" />
     </task>
     <task id="LOCAL-00001" summary="fist commit">
       <option name="closed" value="true" />
@@ -137,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715274580122</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="modified regexes, added saving users into files-serializable&#10;Fixed cancel btn">
+      <option name="closed" value="true" />
+      <created>1715425833979</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715425833979</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +177,7 @@
     <MESSAGE value="form update" />
     <MESSAGE value="forms update&#10;Created Login and Account form" />
     <MESSAGE value="Created regex for user input,&#10;need to do exeptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created regex for user input,&#10;need to do exeptions" />
+    <MESSAGE value="modified regexes, added saving users into files-serializable&#10;Fixed cancel btn" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified regexes, added saving users into files-serializable&#10;Fixed cancel btn" />
   </component>
 </project>

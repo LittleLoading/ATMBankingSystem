@@ -46,6 +46,8 @@ public class RegisterForm extends JDialog {
         setVisible(true);
     }
 
+
+
     public void registerUser() {
         String name = tfName.getText();
         String surename = tfSurename.getText();
@@ -97,14 +99,20 @@ public class RegisterForm extends JDialog {
         }
 
         if (!confirmPassword(password, confirmPassword)) {
-            return; // Error message is already displayed in the confirmPassword method
+            return;
         }
 
-        // At this point, all required fields are non-empty and passwords match
+        Register register = new Register();
+        if(!register.isPhoneUnique(phone)){
+            JOptionPane.showMessageDialog(null,"Phone number already exists.", "Try again", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         User user = new User(name, surename, email, phone, adress, password);
         user.addUser(user);
         System.out.println("User was added");
         user.showusers();
+        System.out.println("Users were showed");
     }
 
     public boolean confirmPassword(String password, String confirmPassword) {
