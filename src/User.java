@@ -5,6 +5,8 @@ import java.util.TreeSet;
 
 public class User implements Serializable {
 
+
+
     private String name;
     private String surename;
     private String email;
@@ -25,20 +27,6 @@ public class User implements Serializable {
         this.address = address;
         this.password = password;
         setAccountNumber();
-    }
-
-    public void addUser(User user) {
-        register.addUser(user);
-    }
-
-    public void showusers() {
-        System.out.println(getUsers());
-    }
-
-
-
-    public HashSet<User> getUsers(){
-        return register.getUsers();
     }
 
     @Override

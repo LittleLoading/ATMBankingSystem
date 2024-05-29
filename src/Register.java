@@ -1,96 +1,102 @@
 import java.io.*;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.UUID;
+import java.util.*;
+import java.nio.file.*;
 
 public class Register implements Serializable {
 
-    private HashMap<Character, HashSet<User>> userMap;
-    private static final String USERS_FOLDER = "Users";
-    private static final long serialVersionUID = 1113799434508676095L;
 
 
     public Register() {
-        userMap = new HashMap<>();
     }
 
-    public void addUser(User user) {
-        if (!isPhoneUnique(user.getPhone())) {
-            System.out.println("Phone number already exists.");
-            return;
+    public static boolean isUnique(String email, String phoneNumber) throws IOException, ClassNotFoundException {
+        File usersDir = new File("src/Users");
+        if (!usersDir.exists() || !usersDir.isDirectory()) {
+            throw new IOException("Users directory does not exist or is not a directory");
         }
 
-        char firstLetter = Character.toUpperCase(user.getSurename().charAt(0));
-        if (!userMap.containsKey(firstLetter)) {
-            userMap.put(firstLetter, new HashSet<>());
-        }
-        userMap.get(firstLetter).add(user);
-        saveToFile(user);
-    }
-
-    public boolean isPhoneUnique(String phone) {
-        for (HashSet<User> users : userMap.values()) {
-            for (User user : users) {
-                if (user.getPhone().equals(phone)) {
-                    return false;
+        File[] files = usersDir.listFiles((dir, name) -> name.endsWith(".ser"));
+        if (files != null) {
+            for (File file : files) {
+                try (ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file))) {
+                    User user = (User) stream.readObject();
+                    if (user.getEmail().equals(email) || user.getPhone().equals(phoneNumber)) {
+                        return false; // Email or phone number is not unique
+                    }
+                } catch (IOException | ClassNotFoundException e) {
+                    // Log error or handle specific cases
                 }
             }
         }
+        return true; // Email and phone number are unique
+    }
 
-        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get(USERS_FOLDER))) {
-            for (Path path : directoryStream) {
-                User user = readUserFromFile(path);
-                if (user != null && user.getPhone().equals(phone)) {
-                    return false;
+    public static User readUserFromFile(String email, String password) throws IOException, ClassNotFoundException {
+        File usersDir = new File("src/Users");
+        if (!usersDir.exists() || !usersDir.isDirectory()) {
+            throw new IOException("Users directory does not exist or is not a directory");
+        }
+        File[] files = usersDir.listFiles((dir, name) -> name.endsWith(".ser"));
+        if (files != null) {
+            for (File file : files) {
+                try (ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file))) {
+                    User user = (User) stream.readObject();
+                    if (Objects.equals(user.getEmail(), email) && Objects.equals(user.getPassword(), password)) {
+                        return user;
+                    }
+                } catch (IOException | ClassNotFoundException e) {
+                    // Log error or handle specific cases
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
         }
-        return true;
+        throw new IOException("User not found");
     }
 
-    private User readUserFromFile(Path path) {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path.toFile()))) {
-            return (User) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    private void saveToFile(User user) {
-
-        String folderName = "Users";
-        Path folderPath = Paths.get(folderName);
-        if(!Files.exists(folderPath)){
-            try {
-                Files.createDirectories(folderPath);
-            }catch (IOException e) {
-                e.printStackTrace();
-                return;
+    public static void saveUser(User user) throws IOException, ClassNotFoundException {
+        if (isUnique(user.getEmail(), user.getPhone())) {
+            String uniqueNumber = UUID.randomUUID().toString();
+            File usersDir = new File("src/Users");
+            if (!usersDir.exists()) {
+                usersDir.mkdirs();
             }
-        }
-
-
-        String fileName = folderName + "/user_" + user.getSurename() + "_" + UUID.randomUUID() + ".ser";
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            oos.writeObject(user);
-        } catch (IOException e) {
-            e.printStackTrace();
+            File file = new File(usersDir, "user_" + user.getSurename() + "_" + uniqueNumber + ".ser");
+            try (ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(file))) {
+                stream.writeObject(user);
+                System.out.println("User saved successfully.");
+            }
+        } else {
+            System.out.println("Email or phone number is already in use. User not saved.");
         }
     }
 
-    public HashSet<User> getUsers() {
-        HashSet<User> allUsers = new HashSet<>();
-        for (HashSet<User> users : userMap.values()) {
-            allUsers.addAll(users);
+    public static void displayAllUsers() throws IOException, ClassNotFoundException {
+        File usersDir = new File("src/Users");
+        if (!usersDir.exists() || !usersDir.isDirectory()) {
+            throw new IOException("Users directory does not exist or is not a directory");
         }
-        return allUsers;
+
+        File[] files = usersDir.listFiles((dir, name) -> name.endsWith(".ser"));
+        if (files != null) {
+            for (File file : files) {
+                try (ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file))) {
+                    User user = (User) stream.readObject();
+                    // Print user details
+                    System.out.println("User details from file: " + file.getName());
+                    System.out.println("Name: " + user.getName());
+                    System.out.println("Surname: " + user.getSurename());
+                    System.out.println("Bank number: " + user.getAccountNumber());
+                    System.out.println("Email: " + user.getEmail());
+                    System.out.println("Phone: " + user.getPhone());
+                    System.out.println("Address: " + user.getAddress());
+                    System.out.println("Password: " + user.getPassword());
+                    System.out.println("-----");
+                } catch (IOException | ClassNotFoundException e) {
+                    // Log error or handle specific cases
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            System.out.println("No user files found.");
+        }
     }
 }

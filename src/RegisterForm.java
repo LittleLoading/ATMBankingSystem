@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class RegisterForm extends JDialog {
     private JTextField tfName;
@@ -11,8 +12,6 @@ public class RegisterForm extends JDialog {
     private JTextField tfAdress;
     private JPasswordField pfConfirmPassword;
     private JPasswordField pfPassword;
-    private JCheckBox maleCheckBox;
-    private JCheckBox femaleCheckBox;
     private JButton btnRegister;
     private JButton btnCancel;
     private JPanel registerPanel;
@@ -50,21 +49,21 @@ public class RegisterForm extends JDialog {
 
     public void registerUser() {
         String name = tfName.getText();
-        String surename = tfSurename.getText();
+        String surname = tfSurename.getText();
         String email = tfEmail.getText();
         String phone = tfPhone.getText();
-        String adress = tfAdress.getText();
+        String address = tfAdress.getText();
         String password = String.valueOf(pfPassword.getPassword());
         String confirmPassword = String.valueOf(pfConfirmPassword.getPassword());
 
         String nameRegex = "^[A-Z]{1}[a-z]+$";
-        String surenameRegex = "^[A-Z]{1}[a-zA-Z]+$";
+        String surnameRegex = "^[A-Z]{1}[a-zA-Z]+$";
         String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+\\.[a-zA-Z]{2,}$";
-        String phoneRegex = "^(\\d{3}\\d{3}\\d{3})$";
-        String adressRegex = "^[A-Z]{1}[a-z]+$";
+        String phoneRegex = "^(\\d{9})$";
+        String addressRegex = "^[A-Z]{1}[a-z]+$";
         String passwordRegex = "^(?=.*\\d)(?=.*[A-Z]).{8,}$";
 
-        if (name.isEmpty() || surename.isEmpty() || email.isEmpty() || phone.isEmpty() || adress.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || phone.isEmpty() || address.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill all the required fields!", "Try again", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -74,27 +73,28 @@ public class RegisterForm extends JDialog {
             return;
         }
 
-        if (!surename.matches(surenameRegex)) {
-            JOptionPane.showMessageDialog(null, "Surename has to be in format [Surename] example [Smith]", "Try again", JOptionPane.ERROR_MESSAGE);
+        if (!surname.matches(surnameRegex)) {
+            JOptionPane.showMessageDialog(null, "Surname has to be in format [Surname] example [Smith]", "Try again", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (!email.matches(emailRegex)) {
-            JOptionPane.showMessageDialog(null, "Email is in wrong fromat, example of correct email: [liam_smith123@gmail.com]", "Try again", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Email is in wrong format, example of correct email: [liam_smith123@gmail.com]", "Try again", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (!phone.matches(phoneRegex)) {
-            JOptionPane.showMessageDialog(null, "Phone number has to be 9 digit number  example [123456789]");
+            JOptionPane.showMessageDialog(null, "Phone number has to be a 9 digit number example [123456789]", "Try again", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (!adress.matches(adressRegex)) {
-            JOptionPane.showMessageDialog(null, "Adress has to be in format [Adress] example [Jecna]");
+        if (!address.matches(addressRegex)) {
+            JOptionPane.showMessageDialog(null, "Address has to be in format [Address] example [Jecna]", "Try again", JOptionPane.ERROR_MESSAGE);
             return;
         }
+
         if (!password.matches(passwordRegex)) {
-            JOptionPane.showMessageDialog(null, "Password has to be: at least 8 characters, contain at least one digit and one uppercase letter. example: [LiamSmith123]");
+            JOptionPane.showMessageDialog(null, "Password has to be: at least 8 characters, contain at least one digit and one uppercase letter. example: [LiamSmith123]", "Try again", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -103,24 +103,111 @@ public class RegisterForm extends JDialog {
         }
 
         Register register = new Register();
-        if(!register.isPhoneUnique(phone)){
-            JOptionPane.showMessageDialog(null,"Phone number already exists.", "Try again", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        try {
+            if (!register.isUnique(email, phone)) {
+                JOptionPane.showMessageDialog(null, "Email or phone number already exists.", "Try again", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-        User user = new User(name, surename, email, phone, adress, password);
-        user.addUser(user);
-        System.out.println("User was added");
-        user.showusers();
-        System.out.println("Users were showed");
+            // Create new user and save it
+            User user = new User(name,surname,email,phone,address,password);
+            Register.saveUser(user);
+            JOptionPane.showMessageDialog(null, "User registered successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            register.displayAllUsers();
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "An error occurred while saving the user.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    public boolean confirmPassword(String password, String confirmPassword) {
+    private boolean confirmPassword(String password, String confirmPassword) {
         if (!password.equals(confirmPassword)) {
             JOptionPane.showMessageDialog(null, "Passwords do not match!", "Try again", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else {
-            return true;
         }
+        return true;
+    }
+
+
+
+    public JTextField getTfName() {
+        return tfName;
+    }
+
+    public void setTfName(JTextField tfName) {
+        this.tfName = tfName;
+    }
+
+    public JTextField getTfSurename() {
+        return tfSurename;
+    }
+
+    public void setTfSurename(JTextField tfSurename) {
+        this.tfSurename = tfSurename;
+    }
+
+    public JTextField getTfEmail() {
+        return tfEmail;
+    }
+
+    public void setTfEmail(JTextField tfEmail) {
+        this.tfEmail = tfEmail;
+    }
+
+    public JTextField getTfPhone() {
+        return tfPhone;
+    }
+
+    public void setTfPhone(JTextField tfPhone) {
+        this.tfPhone = tfPhone;
+    }
+
+    public JTextField getTfAdress() {
+        return tfAdress;
+    }
+
+    public void setTfAdress(JTextField tfAdress) {
+        this.tfAdress = tfAdress;
+    }
+
+    public JPasswordField getPfConfirmPassword() {
+        return pfConfirmPassword;
+    }
+
+    public void setPfConfirmPassword(JPasswordField pfConfirmPassword) {
+        this.pfConfirmPassword = pfConfirmPassword;
+    }
+
+    public JPasswordField getPfPassword() {
+        return pfPassword;
+    }
+
+    public void setPfPassword(JPasswordField pfPassword) {
+        this.pfPassword = pfPassword;
+    }
+
+    public JButton getBtnRegister() {
+        return btnRegister;
+    }
+
+    public void setBtnRegister(JButton btnRegister) {
+        this.btnRegister = btnRegister;
+    }
+
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public void setBtnCancel(JButton btnCancel) {
+        this.btnCancel = btnCancel;
+    }
+
+    public JPanel getRegisterPanel() {
+        return registerPanel;
+    }
+
+    public void setRegisterPanel(JPanel registerPanel) {
+        this.registerPanel = registerPanel;
     }
 }
