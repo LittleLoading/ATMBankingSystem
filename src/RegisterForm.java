@@ -30,6 +30,9 @@ public class RegisterForm extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 registerUser();
+
+                LoginForm loginForm = new LoginForm(null);
+                loginForm.setVisible(true);
             }
         });
 

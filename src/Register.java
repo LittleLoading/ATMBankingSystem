@@ -3,7 +3,7 @@ import java.util.*;
 import java.nio.file.*;
 
 public class Register implements Serializable {
-
+    private static final long serialVersionUID = 418272607240658501L;
 
 
     public Register() {
@@ -21,14 +21,14 @@ public class Register implements Serializable {
                 try (ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file))) {
                     User user = (User) stream.readObject();
                     if (user.getEmail().equals(email) || user.getPhone().equals(phoneNumber)) {
-                        return false; // Email or phone number is not unique
+                        return false;
                     }
                 } catch (IOException | ClassNotFoundException e) {
-                    // Log error or handle specific cases
+                    throw new IOException("Error reading user data from file: " + file.getName(), e);
                 }
             }
         }
-        return true; // Email and phone number are unique
+        return true;
     }
 
     public static User readUserFromFile(String email, String password) throws IOException, ClassNotFoundException {
@@ -45,7 +45,7 @@ public class Register implements Serializable {
                         return user;
                     }
                 } catch (IOException | ClassNotFoundException e) {
-                    // Log error or handle specific cases
+                    throw new IOException(e);
                 }
             }
         }
@@ -91,8 +91,7 @@ public class Register implements Serializable {
                     System.out.println("Password: " + user.getPassword());
                     System.out.println("-----");
                 } catch (IOException | ClassNotFoundException e) {
-                    // Log error or handle specific cases
-                    e.printStackTrace();
+                    throw new IOException();
                 }
             }
         } else {

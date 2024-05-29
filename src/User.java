@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 public class User implements Serializable {
 
+    private static final long serialVersionUID = -2584696864553332093L;
 
 
     private String name;

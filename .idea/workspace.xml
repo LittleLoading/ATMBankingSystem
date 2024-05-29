@@ -4,28 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3420cf55-7cea-40b5-9d31-d3ce56a4096f" name="Changes" comment="Register error not fixed, saving users into file almost done, added phone checker">
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Kajha_db7073ac-275e-4a85-b535-1782cebd64b0.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Mama_66e9679d-9402-4d43-9176-fc53a5ac5a0b.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Mama_8399b7c8-2db8-4869-9a8c-04b98f18e4fa.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Mama_b7fd656e-2264-433d-89fc-bdedbcad63ee.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Mi_59e299f7-4cbf-4e67-bc96-49714f0e4d21.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Novak_b9e0c80d-bd1e-4161-adf9-f825023395f9.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Vopicak_6b967360-70b7-4903-9c94-29f6c7a60e6c.ser" afterDir="false" />
+    <list default="true" id="3420cf55-7cea-40b5-9d31-d3ce56a4096f" name="Changes" comment="Register update">
+      <change afterPath="$PROJECT_DIR$/src/LoginForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/user_Novacek_fa69f0f1-b4b4-44c1-9927-454469006b87.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Aaa_a5735bad-cb80-4966-bf74-85e8f5e7a3ef.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Heger_fefddfdd-e7c2-49a4-8d57-e699ccf9faef.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/user_Heger_fefddfdd-e7c2-49a4-8d57-e699ccf9faef.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Kovar_53846512-21de-4972-a4e2-296f85ee0712.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Kovar_895a9980-dec2-4510-a032-5cded38032b7.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Kurak_268d76fd-6b72-42c9-a14c-9955ca3d16b1.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Mama_1dba1414-2b21-476b-be18-1ceb16ed1703.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Novak_deb87ff2-9728-4f20-8dc4-e0a0976235af.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Smith_883fbf0f-fd6c-45bb-ac47-78062f74f83d.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Smith_a6e528da-4486-4e12-91bd-7ea95685baf7.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/user_Zusti_0a666c85-4bd6-430c-8ab2-0918edce2668.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginForm.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RegisterForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RegisterForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
@@ -89,6 +73,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\David\Desktop\LearnCode\ATMBankingSystem\src" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -129,7 +116,7 @@
       <workItem from="1715530505140" duration="8207000" />
       <workItem from="1716396487246" duration="1103000" />
       <workItem from="1716835668640" duration="1954000" />
-      <workItem from="1717000354022" duration="3681000" />
+      <workItem from="1717000354022" duration="9521000" />
     </task>
     <task id="LOCAL-00001" summary="fist commit">
       <option name="closed" value="true" />
@@ -179,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715539188850</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Register update">
+      <option name="closed" value="true" />
+      <created>1717005263004</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717005263004</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +188,7 @@
     <MESSAGE value="Created regex for user input,&#10;need to do exeptions" />
     <MESSAGE value="modified regexes, added saving users into files-serializable&#10;Fixed cancel btn" />
     <MESSAGE value="Register error not fixed, saving users into file almost done, added phone checker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register error not fixed, saving users into file almost done, added phone checker" />
+    <MESSAGE value="Register update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register update" />
   </component>
 </project>
