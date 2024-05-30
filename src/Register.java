@@ -30,27 +30,28 @@ public class Register implements Serializable {
         }
         return true;
     }
-
-    public static User readUserFromFile(String email, String password) throws IOException, ClassNotFoundException {
+    public static boolean login(String email, String password) throws IOException, ClassNotFoundException {
         File usersDir = new File("src/Users");
         if (!usersDir.exists() || !usersDir.isDirectory()) {
             throw new IOException("Users directory does not exist or is not a directory");
         }
+
         File[] files = usersDir.listFiles((dir, name) -> name.endsWith(".ser"));
         if (files != null) {
             for (File file : files) {
                 try (ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file))) {
                     User user = (User) stream.readObject();
-                    if (Objects.equals(user.getEmail(), email) && Objects.equals(user.getPassword(), password)) {
-                        return user;
+                    if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+                        return true;
                     }
                 } catch (IOException | ClassNotFoundException e) {
-                    throw new IOException(e);
+                    throw new IOException("Error reading user data from file: " + file.getName(), e);
                 }
             }
         }
-        throw new IOException("User not found");
+        return false;
     }
+
 
     public static void saveUser(User user) throws IOException, ClassNotFoundException {
         if (isUnique(user.getEmail(), user.getPhone())) {

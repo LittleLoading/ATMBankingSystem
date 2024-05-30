@@ -15,6 +15,7 @@ public class RegisterForm extends JDialog {
     private JButton btnRegister;
     private JButton btnCancel;
     private JPanel registerPanel;
+    private boolean registered =false;
 
     public RegisterForm(JFrame parent) {
         super(parent);
@@ -30,9 +31,10 @@ public class RegisterForm extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 registerUser();
-
-                LoginForm loginForm = new LoginForm(null);
-                loginForm.setVisible(true);
+                if(registered) {
+                    LoginForm loginForm = new LoginForm(null);
+                    loginForm.setVisible(true);
+                }
             }
         });
 
@@ -117,6 +119,8 @@ public class RegisterForm extends JDialog {
             Register.saveUser(user);
             JOptionPane.showMessageDialog(null, "User registered successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             register.displayAllUsers();
+            registered = true;
+
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

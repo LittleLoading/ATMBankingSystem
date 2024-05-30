@@ -34,4 +34,7 @@ public class Account extends JDialog {
     }
 
 
+    public Account() {
+
+    }
 }
