@@ -1,8 +1,11 @@
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.TreeSet;
+import java.util.*;
 
+/**
+ * user has a lot of variables that he has to contain
+ * Is the element that we use everywere and its the main reason this has been created
+ * its all about USERS!
+ */
 public class User implements Serializable {
 
     private static final long serialVersionUID = -2584696864553332093L;
@@ -15,19 +18,22 @@ public class User implements Serializable {
     private String address;
     private String password;
     private String accountNumber;
+    private double accountBalance;
+    private List<Transaction> transactionHistory = new ArrayList<>();
 
-    Register register = new Register();
 
-    HashSet<User> users = new HashSet<>();
 
-    public User(String name, String surename, String email, String phone, String address, String password) {
+    public User(String name, String surename, String email, String phone, String address, String password, double accountBalance) {
         this.name = name;
         this.surename = surename;
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.password = password;
+        this.accountBalance = accountBalance;
         setAccountNumber();
+        this.transactionHistory = new ArrayList<>();
+
     }
 
     @Override
@@ -50,7 +56,7 @@ public class User implements Serializable {
         if (name.matches("^[A-Z]{1}[a-z]+$")) {
             this.name = name;
         } else {
-            //Throw it has to be only letters
+            throw new IllegalArgumentException("Name must contain only alphanumeric characters");
         }
     }
 
@@ -62,7 +68,7 @@ public class User implements Serializable {
         if (surename.matches("^[A-Z]{1}[a-z]+$")) {
             this.surename = surename;
         } else {
-            //Throw someshit
+            throw new IllegalArgumentException("Surename must contain only alphanumeric characters");
         }
     }
 
@@ -74,8 +80,15 @@ public class User implements Serializable {
         if (email.toLowerCase().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+\\.[a-zA-Z]{2,}$")) {
             this.email = email.toLowerCase();
         } else {
-            //Throw someshit
+            throw new IllegalArgumentException("Email must contain only alphanumeric characters");
         }
+    }
+
+    public List<Transaction> getTransactionHistory() {
+        return transactionHistory;
+    }
+    public void addTransaction(Transaction transaction) {
+        this.transactionHistory.add(transaction);
     }
 
     public String getPhone() {
@@ -86,7 +99,7 @@ public class User implements Serializable {
         if (phone.matches("^(\\d{3}\\d{3}\\d{3})$")) {
             this.phone = phone;
         } else {
-            //throw some exepriton
+            throw new IllegalArgumentException("Phone number must contain only alphanumeric characters");
         }
     }
 
@@ -98,7 +111,7 @@ public class User implements Serializable {
         if (address.toLowerCase().matches("^[A-Z]{1}[a-z]+$")) {
             this.address = address;
         } else {
-            //throw some shit
+            throw new IllegalArgumentException("Address must contain only alphanumeric characters");
         }
     }
 
@@ -107,10 +120,10 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        if (password.matches("^(?=.*\\d)(?=.*[A-Z]).{8,}$\n")) {
+        if (password.matches("^(?=.*\\d)(?=.*[A-Z]).{8,}$")) {
             this.password = password;
         } else {
-            //throw some shit
+
         }
     }
 
@@ -120,12 +133,24 @@ public class User implements Serializable {
 
     public void setAccountNumber() {
         Random rn = new Random();
-        int bankFirst = rn.nextInt(90000000) + 10000000;
+        int bankFirst = rn.nextInt( 90000000) + 10000000;
         int bankLast = rn.nextInt(9000) + 1000;
 
         String bankLastString = String.valueOf(bankLast);
 
         String accountNumber = bankFirst + "/" + bankLastString;
         this.accountNumber = accountNumber;
+    }
+
+    public double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public void setAccountBalance(double accountBalance) {
+        this.accountBalance = accountBalance;
+    }
+
+    public void setTransactionHistory(List<Transaction> transactionHistory) {
+        this.transactionHistory = transactionHistory;
     }
 }

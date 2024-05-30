@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/**
+ * RegisterForm, there user can register him self to get an account, it runs him through few regexes to check if he/shes legit
+ */
 public class RegisterForm extends JDialog {
     private JTextField tfName;
     private JTextField tfSurename;
@@ -24,21 +27,25 @@ public class RegisterForm extends JDialog {
         setMinimumSize(new Dimension(400, 450));
         setModal(true);
         setLocationRelativeTo(parent);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
-        //Register Button
+
+
         btnRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 registerUser();
                 if(registered) {
+                    dispose();
                     LoginForm loginForm = new LoginForm(null);
                     loginForm.setVisible(true);
+                    setVisible(false);
                 }
             }
         });
 
-        //Cancel Button
+
         btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -114,11 +121,9 @@ public class RegisterForm extends JDialog {
                 return;
             }
 
-            // Create new user and save it
-            User user = new User(name,surname,email,phone,address,password);
-            Register.saveUser(user);
+            User user = new User(name,surname,email,phone,address,password,100);
+            register.saveUser(user);
             JOptionPane.showMessageDialog(null, "User registered successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            register.displayAllUsers();
             registered = true;
 
 

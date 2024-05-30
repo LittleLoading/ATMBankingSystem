@@ -4,26 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3420cf55-7cea-40b5-9d31-d3ce56a4096f" name="Changes" comment="Register update">
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Hanzal_a66b89eb-6b39-4fba-9ea0-e208607660f6.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Hanzalova_a331d18a-cc84-4b42-aa02-f93dbf100c94.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Hanzalova_f7dd3c43-7e7b-41f3-939d-25e40dd3d4f4.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/user_Houra_e9246a07-5ffa-4e52-9117-553a649aa580.ser" afterDir="false" />
+    <list default="true" id="3420cf55-7cea-40b5-9d31-d3ce56a4096f" name="Changes" comment="WelcomeForm">
+      <change afterPath="$PROJECT_DIR$/Tests/RegisterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/UserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SendForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SendForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/user_Sir_29a137c1-e121-4b3a-8381-5e9b77b3b1df.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/user_Vcelka_50772e97-1c56-4b71-aeb1-bc08117f2aa8.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WithdrawForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WithdrawForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ATMBankingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ATMBankingSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RegisterForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/user_Heger_fefddfdd-e7c2-49a4-8d57-e699ccf9faef.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/user_Kajha_db7073ac-275e-4a85-b535-1782cebd64b0.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/user_Mama_66e9679d-9402-4d43-9176-fc53a5ac5a0b.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/user_Mama_8399b7c8-2db8-4869-9a8c-04b98f18e4fa.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/user_Mama_b7fd656e-2264-433d-89fc-bdedbcad63ee.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/user_Mi_59e299f7-4cbf-4e67-bc96-49714f0e4d21.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/user_Novacek_fa69f0f1-b4b4-44c1-9927-454469006b87.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/user_Novak_b9e0c80d-bd1e-4161-adf9-f825023395f9.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/user_Vopicak_6b967360-70b7-4903-9c94-29f6c7a60e6c.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/user_Hanzal_a66b89eb-6b39-4fba-9ea0-e208607660f6.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/user_Hanzalova_a331d18a-cc84-4b42-aa02-f93dbf100c94.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/user_Hanzalova_f7dd3c43-7e7b-41f3-939d-25e40dd3d4f4.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/user_Houra_e9246a07-5ffa-4e52-9117-553a649aa580.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WelcomeForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/WelcomeForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WelcomeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WelcomeForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +40,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -63,43 +76,116 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;309&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.RegisterTest.isUnique.executor": "Run",
+    "JUnit.RegisterTest.login.executor": "Run",
+    "JUnit.RegisterTest.sendMoney.executor": "Run",
+    "JUnit.UserTest.addTransaction.executor": "Run",
+    "JUnit.UserTest.setAccountNumber.executor": "Run",
+    "JUnit.UserTest.setPassword.executor": "Run",
+    "JUnit.UserTest.testAddTransaction.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "309",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/David/Downloads/Projekt_2Rocnik_TB-master (2)",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\David\Desktop\LearnCode\ATMBankingSystem\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\David\Desktop\LearnCode\ATMBankingSystem\src" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager" selected="JUnit.RegisterTest.login">
+    <configuration name="RegisterTest.isUnique" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATMBankingSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RegisterTest" />
+      <option name="METHOD_NAME" value="isUnique" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterTest.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATMBankingSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RegisterTest" />
+      <option name="METHOD_NAME" value="login" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterTest.sendMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATMBankingSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RegisterTest" />
+      <option name="METHOD_NAME" value="sendMoney" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.addTransaction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATMBankingSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserTest" />
+      <option name="METHOD_NAME" value="addTransaction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.setAccountNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATMBankingSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserTest" />
+      <option name="METHOD_NAME" value="setAccountNumber" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RegisterTest.login" />
+        <item itemvalue="JUnit.UserTest.addTransaction" />
+        <item itemvalue="JUnit.RegisterTest.sendMoney" />
+        <item itemvalue="JUnit.RegisterTest.isUnique" />
+        <item itemvalue="JUnit.UserTest.setAccountNumber" />
       </list>
     </recent_temporary>
   </component>
@@ -129,7 +215,8 @@
       <workItem from="1716396487246" duration="1103000" />
       <workItem from="1716835668640" duration="1954000" />
       <workItem from="1717000354022" duration="9790000" />
-      <workItem from="1717094430488" duration="3447000" />
+      <workItem from="1717094430488" duration="4734000" />
+      <workItem from="1717231980072" duration="21418000" />
     </task>
     <task id="LOCAL-00001" summary="fist commit">
       <option name="closed" value="true" />
@@ -195,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717014850608</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="WelcomeForm">
+      <option name="closed" value="true" />
+      <created>1717099645807</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1717099645807</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +305,7 @@
     <MESSAGE value="modified regexes, added saving users into files-serializable&#10;Fixed cancel btn" />
     <MESSAGE value="Register error not fixed, saving users into file almost done, added phone checker" />
     <MESSAGE value="Register update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register update" />
+    <MESSAGE value="WelcomeForm" />
+    <option name="LAST_COMMIT_MESSAGE" value="WelcomeForm" />
   </component>
 </project>
