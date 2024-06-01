@@ -28,6 +28,8 @@ public class SendForm extends JDialog {
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
+
+
         setUsersName(user.getName() + " " + user.getSurename());
         setUsersBalance(String.valueOf(user.getAccountBalance()));
 
