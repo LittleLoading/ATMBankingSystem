@@ -23,6 +23,7 @@ public class WelcomeForm extends JDialog{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
+
         setLocationRelativeTo(parent);
 
 
